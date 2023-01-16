@@ -1,0 +1,2 @@
+set hlsearch incsearch ignorecase smartcase
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>

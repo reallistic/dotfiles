@@ -1,0 +1,12 @@
+autoflake
+black
+mypy
+mypy
+mypy-extensions
+powerline-status
+reorder-python-imports
+tox
+virtualenv
+nox
+locust
+poetry
