@@ -1,6 +1,3 @@
-# Shortcut for deleting pyc files recursively in the current directory
-alias rmpyc='find . -name "*.pyc" -delete'
-
 # Always disregard binary files and show line numbers.
 alias bgrep='grep -n --binary-files without-match'
 
