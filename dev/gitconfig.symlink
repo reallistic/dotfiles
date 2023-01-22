@@ -1,0 +1,31 @@
+[include]
+    path = .gitconfig_local
+[core]
+    excludesfile = /Users/michase/.gitignore_global
+    pager = "diff-so-fancy | less --tabs=4 -RFX"
+[diff-so-fancy]
+    markEmptyLines = false
+    first-run = false
+[color]
+    ui = true
+[credential]
+    helper = osxkeychain
+[init]
+    defaultBranch = main
+[push]
+    default = current
+    autoSetupRemote = true
+[merge]
+    ff = only
+[pull]
+    default = current
+    ff = only
+[alias]
+    aliases = config --get-regexp alias 
+
+    ai = add --interactive
+    pushu = push origin HEAD
+    pushf = push -f
+    fetchmain = fetch origin main:main
+    fetchmaster = fetch origin master:master
+    logu = log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' -10

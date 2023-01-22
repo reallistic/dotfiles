@@ -1,0 +1,96 @@
+""""""
+" Vim plugins
+""""""
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
+
+" call plug#begin('~/.vim/plugged')
+" Plug 'tpope/vim-sensible'
+" Plug 'scrooloose/nerdtree'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'w0rp/ale'
+" Plug 'davidhalter/jedi-vim'
+" call plug#end()
+
+syntax on
+"Allows backspacing text that wasn't added in the current insert
+set backspace=indent,eol,start
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab hlsearch incsearch ignorecase smartcase laststatus=2 ruler
+"set listchars=trail:░,nbsp:▪ list  " old
+set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+" Clear search highlight using space
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+filetype plugin indent on
+
+let python_highlight_all = 1
+command FormatJSON :%!python -m json.tool
+
+
+" set statusline=%f%m%r%h%w\ [TYPE=%Y\ %{&ff}]\
+"            \ [%l\|%c\|%p%%]
+
+" Python stuff
+au FileType py setlocal autoindent
+au FileType py setlocal smartindent
+au FileType py setlocal textwidth=79 " PEP-8 Friendly
+
+" Javascript stuff
+au FileType javascript setlocal autoindent
+au FileType javascript setlocal smartindent
+au FileType javascript setlocal tabstop=2 shiftwidth=2
+
+" Typescript stuff
+au BufRead,BufNewFile *.ts set filetype=typescript
+au FileType typescript setlocal autoindent
+au FileType typescript setlocal smartindent
+au FileType typescript setlocal tabstop=2 shiftwidth=2
+
+" CSS stuff
+au FileType css setlocal autoindent
+au FileType css setlocal smartindent
+au FileType css setlocal tabstop=2 shiftwidth=2
+
+" CS stuff bleh
+au FileType cs setlocal tabstop=4 shiftwidth=4 noexpandtab
+au FileType cs setlocal listchars=tab:\ \ 
+au FileType cs setlocal autoindent
+au FileType cs setlocal smartindent
+au FileType cs setlocal fileformat=dos
+
+
+" Powerline
+" set rtp+=~/.pyenv/versions/2.7.14/lib/python2.7/site-packages/powerline/bindings/vim/
+" set t_Co=256
+
+
+" NERD_tree config
+" let NERDTreeChDirMode=2
+" let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
+" let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
+" let NERDTreeShowBookmarks=1
+" map <silent> <C-n> :NERDTreeToggle<CR>
+
+" Viewport Controls
+" " ie moving between split panes
+map <silent>,h <C-w>h
+map <silent>,j <C-w>j
+map <silent>,k <C-w>k
+map <silent>,l <C-w>l
+
+" Pyflakes
+" let g:pyflakes_use_quickfix = 0
+
+
+" let g:ale_linters = {
+" \   'python': ['pylint', 'flake8', 'python', 'mypy'],
+" \   'typescript': ['tslint'],
+" \}
+
+" let g:ale_echo_msg_format = '[%linter%] %s'
+
+
+" Make the mac clipboard work
+set clipboard=unnamed
