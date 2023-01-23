@@ -17,7 +17,7 @@ PY_VERSIONS=(
 )
 
 INSTALL_LOCATION="$HOME/.pyenv"
-REQS_LOCATION="$HOME/.config/python_requirements"
+REQS_LOCATION="$HOME/.dotfiles_public/pyenv"
 DEFAULT_REQUIREMENTS_IN_FILE="$REQS_LOCATION/global_requirements.in"
 
 if [ ! -f $DEFAULT_REQUIREMENTS_IN_FILE ]; then
