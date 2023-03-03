@@ -25,6 +25,8 @@ if [ ! -f $DEFAULT_REQUIREMENTS_IN_FILE ]; then
     exit 1
 fi
 
+export PIP_REQUIRE_VIRTUALENV=false
+
 for version in $PY_VERSIONS; do
     if [ ! -f $INSTALL_LOCATION/versions/$version/bin/python ]; then
         pyenv install $version
