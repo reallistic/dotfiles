@@ -1,0 +1,62 @@
+<TaskOptions>
+  <TaskOptions>
+    <option name="arguments" value="run ruff format $FilePathRelativeToProjectRoot$" />
+    <option name="checkSyntaxErrors" value="true" />
+    <option name="description" />
+    <option name="exitCodeBehavior" value="ERROR" />
+    <option name="fileExtension" value="py" />
+    <option name="immediateSync" value="false" />
+    <option name="name" value="ruff-format run" />
+    <option name="output" value="$FilePathRelativeToProjectRoot$" />
+    <option name="outputFilters">
+      <array />
+    </option>
+    <option name="outputFromStdout" value="false" />
+    <option name="program" value="pynt" />
+    <option name="runOnExternalChanges" value="false" />
+    <option name="scopeName" value="Project Files" />
+    <option name="trackOnlyRoot" value="false" />
+    <option name="workingDir" value="$ProjectFileDir$" />
+    <envs />
+  </TaskOptions>
+  <TaskOptions>
+    <option name="arguments" value="run mypy --install-types --non-interactive --ignore-missing-imports --check-untyped-defs --show-error-codes --follow-imports silent $FilePathRelativeToProjectRoot$" />
+    <option name="checkSyntaxErrors" value="true" />
+    <option name="description" />
+    <option name="exitCodeBehavior" value="ERROR" />
+    <option name="fileExtension" value="py" />
+    <option name="immediateSync" value="false" />
+    <option name="name" value="mypy run" />
+    <option name="output" value="$FilePathRelativeToProjectRoot$" />
+    <option name="outputFilters">
+      <array />
+    </option>
+    <option name="outputFromStdout" value="false" />
+    <option name="program" value="pynt" />
+    <option name="runOnExternalChanges" value="false" />
+    <option name="scopeName" value="Project Files" />
+    <option name="trackOnlyRoot" value="false" />
+    <option name="workingDir" value="$ProjectFileDir$" />
+    <envs />
+  </TaskOptions>
+  <TaskOptions>
+    <option name="arguments" value="run autoflake -i --remove-all-unused-imports $FilePathRelativeToProjectRoot$" />
+    <option name="checkSyntaxErrors" value="true" />
+    <option name="description" />
+    <option name="exitCodeBehavior" value="ERROR" />
+    <option name="fileExtension" value="py" />
+    <option name="immediateSync" value="false" />
+    <option name="name" value="remove-unused-imports run" />
+    <option name="output" value="$FilePathRelativeToProjectRoot$" />
+    <option name="outputFilters">
+      <array />
+    </option>
+    <option name="outputFromStdout" value="false" />
+    <option name="program" value="pynt" />
+    <option name="runOnExternalChanges" value="false" />
+    <option name="scopeName" value="Project Files" />
+    <option name="trackOnlyRoot" value="false" />
+    <option name="workingDir" value="$ProjectFileDir$" />
+    <envs />
+  </TaskOptions>
+</TaskOptions>
