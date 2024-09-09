@@ -5,4 +5,6 @@ set -o vi
 HISTFILESIZE=10000000
 
 # Magical z
-. `brew --prefix`/etc/profile.d/z.sh
+if command -v brew &> /dev/null; then
+    . `brew --prefix`/etc/profile.d/z.sh
+fi

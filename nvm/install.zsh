@@ -4,4 +4,6 @@ if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
     . "/usr/local/opt/nvm/nvm.sh"
 fi
 
-export NODE_PATH=`nvm which current`
+if command -v metatron &> /dev/null; then
+    export NODE_PATH=`nvm which current`
+fi

@@ -9,8 +9,10 @@ NODE_VERSIONS=(
 
 INSTALL_LOCATION="$HOME/.nvm"
 
-for version in $NODE_VERSIONS; do
-    if [ ! -f $INSTALL_LOCATION/versions/node/v$version/bin/node ]; then
-        nvm install $version
-    fi
-done
+if command -v nvm &> /dev/null; then
+    for version in $NODE_VERSIONS; do
+        if [ ! -f $INSTALL_LOCATION/versions/node/v$version/bin/node ]; then
+            nvm install $version
+        fi
+    done
+fi

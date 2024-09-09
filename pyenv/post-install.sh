@@ -27,33 +27,35 @@ fi
 
 export PIP_REQUIRE_VIRTUALENV=false
 
-for version in $PY_VERSIONS; do
-    if [ ! -f $INSTALL_LOCATION/versions/$version/bin/python ]; then
-        pyenv install $version
-    fi
+if command -v pyenv &> /dev/null; then
+    for version in $PY_VERSIONS; do
+        if [ ! -f $INSTALL_LOCATION/versions/$version/bin/python ]; then
+            pyenv install $version
+        fi
 
-    cmd_bin="$(pyenv prefix $version)/bin"
-    in_file="$DEFAULT_REQUIREMENTS_IN_FILE"
-    if [[ -f "$REQS_LOCATION/global_requirements.$version.in" ]]; then
-        in_file="$REQS_LOCATION/global_requirements.$version.in"
-    fi
-    out_file="$REQS_LOCATION/global_requirements.$version.txt"
-    echo "processing python version $version"
-    echo "bin dir: $cmd_bin"
-    echo "in file: $in_file"
-    echo "out file: $out_file"
-    echo "=========================="
+        cmd_bin="$(pyenv prefix $version)/bin"
+        in_file="$DEFAULT_REQUIREMENTS_IN_FILE"
+        if [[ -f "$REQS_LOCATION/global_requirements.$version.in" ]]; then
+            in_file="$REQS_LOCATION/global_requirements.$version.in"
+        fi
+        out_file="$REQS_LOCATION/global_requirements.$version.txt"
+        echo "processing python version $version"
+        echo "bin dir: $cmd_bin"
+        echo "in file: $in_file"
+        echo "out file: $out_file"
+        echo "=========================="
 
-    echo "Upgrading pip"
-    $cmd_bin/pip install --upgrade pip setuptools wheel
-    echo "Installing pip-tools"
-    $cmd_bin/pip install --upgrade pip-tools
-    echo "compiling in file $in_file"
-    $cmd_bin/pip-compile --upgrade --output-file $out_file $in_file
-    # $cmd_bin/pip-sync $out_file
-    $cmd_bin/pip install -r $out_file
-    echo "=========================="
-    echo ""
-    echo ""
-    echo "========== DONE =========="
-done
+        echo "Upgrading pip"
+        $cmd_bin/pip install --upgrade pip setuptools wheel
+        echo "Installing pip-tools"
+        $cmd_bin/pip install --upgrade pip-tools
+        echo "compiling in file $in_file"
+        $cmd_bin/pip-compile --upgrade --output-file $out_file $in_file
+        # $cmd_bin/pip-sync $out_file
+        $cmd_bin/pip install -r $out_file
+        echo "=========================="
+        echo ""
+        echo ""
+        echo "========== DONE =========="
+    done
+fi
