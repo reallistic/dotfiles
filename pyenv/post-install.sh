@@ -1,5 +1,9 @@
 #!/bin/bash -e
 
+echo "SKIPPING PYENV versions install"
+
+exit 0
+
 
 PY_VERSIONS=(
 2.7.14
