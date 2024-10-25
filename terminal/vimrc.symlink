@@ -33,6 +33,7 @@ command FormatJSON :%!python -m json.tool
 "            \ [%l\|%c\|%p%%]
 
 " Python stuff
+set omnifunc=syntaxcomplete#Complete
 au FileType py setlocal autoindent
 au FileType py setlocal smartindent
 au FileType py setlocal textwidth=79 " PEP-8 Friendly
