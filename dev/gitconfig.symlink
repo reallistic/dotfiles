@@ -29,3 +29,10 @@
     fetchmain = fetch origin main:main
     fetchmaster = fetch origin master:master
     logu = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -10
+##### BEGIN METATRON AUTOCONFIG
+# Do not remove the above line. The metatron CLI uses it to update this file.
+# Set git proxy configuration (must be the first directive in this file)
+[include]
+    path = /Users/michase/.gitconfig-proxy
+# Do not remove the below line. The metatron CLI uses it to update this file.
+##### END METATRON AUTOCONFIG

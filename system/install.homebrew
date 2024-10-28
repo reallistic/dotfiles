@@ -1,7 +1,6 @@
 curl
 git
 jq
-openssl@1.1
 telnet
 tmux
 z
