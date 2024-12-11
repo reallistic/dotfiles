@@ -32,7 +32,6 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
-    os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
@@ -52,6 +51,7 @@
     direnv                  # direnv status (https://direnv.net/)
     asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
+    dotvenv
     anaconda                # conda environment (https://conda.io/)
     pyenv                   # python environment (https://github.com/pyenv/pyenv)
     goenv                   # go environment (https://github.com/syndbg/goenv)
@@ -1718,3 +1718,19 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
+
+function prompt_dotvenv() {
+  local py_version=""
+  local py_version_color=208
+  if [[ -z "$VIRTUAL_ENV" && -f .venv/bin/python ]]; then
+      py_version=$(.venv/bin/python --version)
+  elif [[ -n "$VIRTUAL_ENV" ]]; then
+      py_version=$($VIRTUAL_ENV/bin/python --version)
+      py_version_color=37
+  fi
+  if [[ -n "$py_version" ]]; then
+      formatted_version=$(echo $py_version | awk '{print $2}' | sed 's/\([0-9]*\)\.\([0-9]*\).*/py\1\2/')
+      p10k segment -f $py_version_color -t "${formatted_version}"
+  fi
+}
