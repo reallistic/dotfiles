@@ -1,2 +1,2 @@
-set hlsearch incsearch ignorecase smartcase
+set hlsearch incsearch ignorecase smartcase ideajoin
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
