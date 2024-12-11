@@ -10,3 +10,5 @@ alias gitpushu='git push -u origin HEAD'
 alias gitpushf='git push -f'
 alias gitfetchmain='git fetch origin main:main'
 alias gitlogu='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' -10'
+
+alias deactivatepy='[[ -n "$VIRTUAL_ENV" ]] && deactivate'
