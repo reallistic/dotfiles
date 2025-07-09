@@ -12,7 +12,7 @@
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
     path = ~/.gitconfig_user_public
 [core]
-    excludesfile = /Users/michase/.gitignore_global
+    excludesfile = ~/.gitignore_global
     pager = "diff-so-fancy | less --tabs=4 -RFX"
 [diff-so-fancy]
     markEmptyLines = false
@@ -21,6 +21,7 @@
     ui = true
 [credential]
     helper = osxkeychain
+    useHttpPath = true
 [init]
     defaultBranch = main
 [push]
@@ -32,7 +33,7 @@
     default = current
     ff = only
 [alias]
-    aliases = config --get-regexp alias 
+    aliases = config --get-regexp alias
 
     ai = add --interactive
     pushu = push origin HEAD
