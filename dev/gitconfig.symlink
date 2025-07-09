@@ -2,11 +2,15 @@
 # Do not remove the above line. The metatron CLI uses it to update this file.
 # Set git proxy configuration (must be the first directive in this file)
 [include]
-    path = /Users/michase/.gitconfig-proxy
+    path = ~/.gitconfig-proxy
 # Do not remove the below line. The metatron CLI uses it to update this file.
 ##### END METATRON AUTOCONFIG
 [include]
     path = .gitconfig_local
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+    path = ~/.gitconfig_user_public
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+    path = ~/.gitconfig_user_public
 [core]
     excludesfile = /Users/michase/.gitignore_global
     pager = "diff-so-fancy | less --tabs=4 -RFX"
