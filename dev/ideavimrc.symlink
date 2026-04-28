@@ -1,2 +1,3 @@
 set hlsearch incsearch ignorecase smartcase ideajoin
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+sethandler <Esc> i-v:vim
