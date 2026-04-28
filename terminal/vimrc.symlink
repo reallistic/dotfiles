@@ -61,6 +61,11 @@ au FileType cs setlocal autoindent
 au FileType cs setlocal smartindent
 au FileType cs setlocal fileformat=dos
 
+" Json stuff
+au FileType json setlocal autoindent
+au FileType json setlocal smartindent
+au FileType json setlocal tabstop=2 shiftwidth=2
+
 
 " Powerline
 " set rtp+=~/.pyenv/versions/2.7.14/lib/python2.7/site-packages/powerline/bindings/vim/
