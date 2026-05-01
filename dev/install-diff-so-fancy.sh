@@ -2,7 +2,11 @@
 
 set -euo pipefail
 
-INSTALL_DIR="/usr/local/bin"
+if [[ -d "$HOME/.dotfiles_public" ]]; then
+    INSTALL_DIR="$HOME/.dotfiles_public/bin"
+else
+    INSTALL_DIR="$HOME/.dotfiles/bin"
+fi
 BINARY_NAME="diff-so-fancy"
 REPO="so-fancy/diff-so-fancy"
 INSTALL_PATH="$INSTALL_DIR/$BINARY_NAME"
@@ -25,6 +29,7 @@ curl -fsSL "https://github.com/$REPO/releases/latest/download/$BINARY_NAME" \
 
 chmod +x "/tmp/$BINARY_NAME"
 
+mkdir -p "$INSTALL_PATH"
 sudo cp "/tmp/$BINARY_NAME" "$INSTALL_PATH"
 
 echo "$BINARY_NAME $LATEST installed to $INSTALL_PATH"
